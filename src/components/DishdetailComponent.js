@@ -1,12 +1,56 @@
 import React, { Component } from 'react';
 import { Card, CardImg, CardText, CardBody,
     CardTitle, Breadcrumb, BreadcrumbItem,Button } from 'reactstrap';
+import {Modal, ModalHeader, ModalBody, Form, FormGroup, Input, Label } from 'reactstrap';
 import { Link } from 'react-router-dom';
 
-function CommentForm() {
-    return(
-        <Button>Neng</Button>
-    );
+class CommentForm extends Component {
+    
+    constructor(props) {
+        super(props);
+        this.toggleModal = this.toggleModal.bind(this);
+        this.state = {
+            isModalOpen: false
+        };
+    }
+    toggleModal() {
+        this.setState({
+            isModalOpen: !this.state.isModalOpen
+        });
+    }
+    render(){
+        return(
+            <div>
+            <Modal isOpen={this.state.isModalOpen} toggle={this.toggleModal}>
+                    <ModalHeader toggle={this.toggleModal}>Submit Comment</ModalHeader>
+                    <ModalBody>
+                        
+                    <Form>
+                            <FormGroup>
+                                <Label htmlFor="rating">Rating</Label>
+                                <Input type="number" id="rating" name="raing"
+                                    innerRef={(input) => this.username = input} />
+                            </FormGroup>
+                            <FormGroup>
+                                <Label htmlFor="name">Your Name</Label>
+                                <Input type="text" id="name" name="name"
+                                    innerRef={(input) => this.password = input}  />
+                            </FormGroup>
+                            <FormGroup className='p-0'>
+                            <Label  htmlFor="message" >Comment</Label>
+                            <Input type="textarea" id="message" name="message"
+                                 rows="6"></Input>
+                            </FormGroup>
+                            <Button type="submit" value="submit" color="primary">submmit</Button>
+                        </Form>
+                    </ModalBody>
+                </Modal>
+                <div className='mt-2'>
+                <Button outline onClick={this.toggleModal}><span className="fa fa-sign-in fa-lg"></span> submmit Comment</Button>
+                </div>
+            </div>
+        );
+    }
 }
 
 class DishDetail extends Component {
@@ -29,6 +73,7 @@ class DishDetail extends Component {
         const comments = this.props.comments.filter( comment => comment.dishId === dish.id );
         if(dish != null)
             return (
+                <div>
                 <Card>
                     <CardTitle>
                         <h4>Comments</h4>
@@ -48,9 +93,9 @@ class DishDetail extends Component {
                             )}
                         </ul>
                     </CardBody>
-                    <CommentForm />
                 </Card>
-                
+                <CommentForm />
+                </div>
             );
     }
 
