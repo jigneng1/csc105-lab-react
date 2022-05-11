@@ -134,6 +134,27 @@ class Contact extends Component {
                         </Col>
                     </FormGroup>
                     <FormGroup row>
+                                <Col md={{size: 6, offset: 2}}>
+                                    <FormGroup check>
+                                        <Label check>
+                                            <Input type="checkbox"
+                                                name="agree"
+                                                checked={this.state.agree}
+                                                onChange={this.handleInputChange} /> {' '}
+                                            <strong>May we contact you?</strong>
+                                        </Label>
+                                    </FormGroup>
+                                </Col>
+                                <Col md={{size: 3, offset: 1}}>
+                                    <Input type="select" name="contactType"
+                                            value={this.state.contactType}
+                                            onChange={this.handleInputChange}>
+                                        <option>Tel.</option>
+                                        <option>Email</option>
+                                    </Input>
+                                </Col>
+                    </FormGroup>
+                    <FormGroup row>
                                 <Label htmlFor="message" md={2}>Your Feedback</Label>
                                 <Col md={10}>
                                     <Input type="textarea" id="message" name="message"
