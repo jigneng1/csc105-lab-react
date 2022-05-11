@@ -1,5 +1,5 @@
 import React from 'react';
-function Dish(props) {
+function DishDetail(props) {
     const { detail, dish } = props;
    function rederComment(dish) {
        if(dish!=null){
@@ -28,4 +28,4 @@ function Dish(props) {
     );
 
 }
-export default Dish;
+export default DishDetail;
