@@ -11,6 +11,7 @@ import { PROMOTIONS } from '../shared/promotions';
 import { LEADERS } from '../shared/leaders';
 import { connect } from 'react-redux';
 import DishDetail from './DishdetailComponent';
+import About from './AboutComponent';
 
 
 const mapStateToProps = state => {
@@ -52,6 +53,9 @@ class Main extends Component {
       const DishWithId = ({match}) => {
         return(
             <DishDetail comments={this.props.comments} dishes={this.props.dishes} selectedDish={match.params.dishId} />
+            // <DishDetail dishes={this.state.dishes.filter((dish)=>dish.id===parseInt(match.params.dishId),10)[10]}
+            // comments = {this.state.comments.filter((comment)=> comment.dishId === parseInt(match.params.dishId),10)}
+            // selectedDish={match.params.dishId}/>
         );
       };   
     return (
@@ -62,6 +66,7 @@ class Main extends Component {
               <Route path='/home' component={HomePage} />
               <Route exact path='/menu' component={() => <Menu dishes={this.props.dishes} />} />
               <Route exact path='/contactus' component={Contact} />
+              <Route path ='/aboutus' component={()=><About leaders ={this.props.leaders}/>}/>
               <Route path='/menu/:dishId' component={DishWithId} />
               <Redirect to="/home" />
           </Switch>

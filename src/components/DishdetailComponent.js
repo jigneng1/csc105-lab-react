@@ -9,9 +9,18 @@ class CommentForm extends Component {
     constructor(props) {
         super(props);
         this.toggleModal = this.toggleModal.bind(this);
+        this.handdleInputChange = this.handleInputChange.bind(this);
         this.state = {
-            isModalOpen: false
+            isModalOpen: false,
+            name : ''
         };
+    }
+    handleInputChange(event){
+        const target = event.target;
+        const name = target.name;
+        this.setState(
+            {[name] : name}
+        )
     }
     toggleModal() {
         this.setState({
@@ -46,7 +55,7 @@ class CommentForm extends Component {
                     </ModalBody>
                 </Modal>
                 <div className='mt-2'>
-                <Button outline onClick={this.toggleModal}><span className="fa fa-sign-in fa-lg"></span> submmit Comment</Button>
+                <Button outline onClick={this.toggleModal}><span className="fa fa-pencil fa-lg"></span> Submmit Comment</Button>
                 </div>
             </div>
         );
