@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 function About(props) {
 
-    const leaders = props.leaders.map((leader) => {
+    const RenderLeader = props.leaders.map((leader) => {
         return (
             <div className='d-flex m-5'>
             <div>
@@ -76,7 +76,7 @@ function About(props) {
                 </div>
                 <div className="col-12">
                     <Media list>
-                        {leaders}
+                        {RenderLeader}
                     </Media>
                 </div>
             </div>

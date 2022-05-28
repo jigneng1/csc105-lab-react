@@ -10,6 +10,7 @@ export const initialState = {
     leaders: LEADERS
 };
 
-export const Reducer = (state = initialState, action) => {
+
+export const Reducer = (state = initialState, action) => { //รับ current state และ action
     return state;
 };

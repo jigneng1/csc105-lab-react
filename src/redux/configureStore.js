@@ -3,6 +3,7 @@ import { Dishes } from './dishes';
 import { Comments } from './comments';
 import { Promotions } from './promotions';
 import { Leaders } from './leaders';
+import { Reducer } from './reducer';
 
 export const ConfigureStore = () => {
     const store = createStore(
