@@ -3,11 +3,10 @@ import { Dishes } from './dishes';
 import { Comments } from './comments';
 import { Promotions } from './promotions';
 import { Leaders } from './leaders';
-import { Reducer } from './reducer';
 
-export const ConfigureStore = () => {
+export const ConfigureStore = () => {  //create store have 2 arguement reducer and state
     const store = createStore(
-        combineReducers({
+        combineReducers({ //have each reducer and combline them in store
             dishes: Dishes,
             comments: Comments,
             promotions: Promotions,

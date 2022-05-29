@@ -8,9 +8,9 @@ import { ConfigureStore } from './redux/configureStore';
 const store = ConfigureStore();
 
 class App extends Component {
-  render() {
-    return (
-        <Provider store={store}>
+  render() { 
+    return ( //มี provider หุ้มไว้เพื่อให้เข้าถึง store ได้
+        <Provider store={store}> 
         <BrowserRouter>
           <div className="App">
             <Main />
